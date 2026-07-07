@@ -15,21 +15,34 @@ export function AdminLoginForm() {
     setLoading(true);
     setError("");
 
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    if (!response.ok) {
-      const data = await response.json();
-      setError(data.error || "Login failed");
+      if (!response.ok) {
+        let message = "Login failed";
+        try {
+          const data = (await response.json()) as { error?: string };
+          message = data.error || message;
+        } catch {
+          // Non-JSON error response (e.g. 500 HTML). Fall back to status text.
+          message = response.statusText || message;
+        }
+        setError(message);
+        return;
+      }
+
+      router.push("/admin");
+      router.refresh();
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Network error";
+      setError(message);
+    } finally {
       setLoading(false);
-      return;
     }
-
-    router.push("/admin");
-    router.refresh();
   }
 
   return (
