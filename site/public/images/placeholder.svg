@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" fill="none">
+  <rect width="800" height="1000" fill="#F5F1EA"/>
+  <rect x="40" y="40" width="720" height="920" fill="#FDFBF7" stroke="#DDD6C8" stroke-width="1"/>
+  <rect x="280" y="320" width="240" height="280" rx="120" fill="#D8E8DF"/>
+  <rect x="200" y="680" width="400" height="12" rx="2" fill="#DDD6C8"/>
+  <rect x="240" y="720" width="320" height="8" rx="2" fill="#DDD6C8"/>
+  <text x="400" y="820" text-anchor="middle" fill="#5C574F" font-family="Georgia, serif" font-size="18">Photo placeholder</text>
+</svg>

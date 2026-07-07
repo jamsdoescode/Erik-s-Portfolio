@@ -1,0 +1,22 @@
+{
+  "name": "done-agent",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "organize": "node src/cli.js organize",
+    "organize:dry": "node src/cli.js organize --dry-run",
+    "task": "node src/cli.js run",
+    "task:dry": "node src/cli.js run --dry-run",
+    "show": "node src/cli.js show"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3",
+    "openai": "^6.45.0",
+    "zod": "^3.24.2"
+  }
+}

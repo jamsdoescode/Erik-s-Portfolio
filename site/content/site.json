@@ -1,0 +1,21 @@
+{
+  "name": "Erik",
+  "tagline": "Product builder and designer-engineer",
+  "intro": "I build focused productivity tools for knowledge workers — products that turn messy real-world input into structured output you can actually use.",
+  "bio": "I'm a product builder who cares about editorial craft in software. I work at the intersection of design and engineering, shipping tools that solve specific jobs instead of generic dashboards.",
+  "bioExtended": "Most of my recent work lives in the career and productivity space: capturing accomplishments, tracking commitments, and reloading context when you switch projects. I prefer warm typography, hairline rules, and interfaces that feel like documents rather than apps.\n\nWhen I'm not building, I'm reading, taking notes, and collecting ideas for the next thing worth making.",
+  "now": [
+    "Editorial design systems for productivity software",
+    "Weekly writing as a way to clarify thinking",
+    "Tools that make AI invisible — structured output, not chat wrappers",
+    "Long-form essays on attention and craft"
+  ],
+  "links": [
+    { "label": "Email", "href": "mailto:hello@example.com" },
+    { "label": "GitHub", "href": "https://github.com" },
+    { "label": "LinkedIn", "href": "https://linkedin.com" }
+  ],
+  "photo": "/images/placeholder.svg",
+  "aboutPhoto": "/images/placeholder.svg",
+  "photos": ["/images/placeholder.svg"]
+}

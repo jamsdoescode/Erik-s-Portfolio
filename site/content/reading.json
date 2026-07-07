@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Working in Public",
+    "author": "Brendan Bouffard",
+    "status": "reading",
+    "url": "https://example.com",
+    "note": "Thinking about how to share work without turning it into performance."
+  },
+  {
+    "title": "The Design of Everyday Things",
+    "author": "Don Norman",
+    "status": "finished",
+    "url": "https://example.com",
+    "note": "Still the best primer on affordances and user mental models."
+  },
+  {
+    "title": "Seeing Like a State",
+    "author": "James C. Scott",
+    "status": "queue",
+    "note": "On my list for a slow weekend."
+  },
+  {
+    "title": "How Buildings Learn",
+    "author": "Stewart Brand",
+    "status": "finished",
+    "url": "https://example.com",
+    "note": "Layers, adaptation, and why good systems survive contact with reality."
+  },
+  {
+    "title": "The Timeless Way of Building",
+    "author": "Christopher Alexander",
+    "status": "queue",
+    "note": "Patterns before patterns were a software thing."
+  }
+]

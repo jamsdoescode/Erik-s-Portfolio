@@ -1,0 +1,84 @@
+.launch-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  /* Background is provided by the backdrop div so we can fade into the site. */
+  background: transparent;
+}
+
+.launch-splash--loading {
+  background: #000;
+}
+
+.launch-splash__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #000;
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.launch-splash--climax .launch-splash__backdrop {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.launch-splash__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Monitor band — centered; trace draws left → right only. */
+.launch-splash__ekg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(44rem, 84vw);
+  height: 8.5rem;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  filter: drop-shadow(0 0 1px rgba(245, 242, 237, 0.35));
+  transition: opacity 300ms ease;
+}
+
+.launch-splash--climax .launch-splash__ekg {
+  opacity: 0;
+}
+
+.launch-splash__ekg-path {
+  fill: none;
+  stroke: rgba(245, 242, 237, 0.9);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.launch-splash__heart {
+  position: absolute;
+  z-index: 4;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0;
+  transform: translate(-50%, -58%);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 10px rgba(130, 16, 25, 0.35));
+}
+
+.launch-splash__heart-path {
+  fill: #821019;
+}
+
+html.splash-logo-hidden #site-home-logo {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-splash__ekg-path,
+  .launch-splash__heart {
+    animation: none !important;
+  }
+}

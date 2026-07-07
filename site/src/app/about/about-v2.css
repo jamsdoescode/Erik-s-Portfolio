@@ -1,0 +1,133 @@
+/*
+ * About page layout v2 — fuller, card-based layout with less empty space.
+ *
+ * ROLLBACK: Delete this file and revert src/app/about/page.tsx from git.
+ */
+
+.about-v2 {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.about-v2-hero {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(26, 25, 23, 0.06);
+}
+
+@media (min-width: 640px) {
+  .about-v2-hero {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-10);
+    padding: var(--space-10);
+  }
+}
+
+.about-v2-photo {
+  width: 8.5rem;
+  height: 8.5rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .about-v2-photo {
+    width: 10rem;
+    height: 10rem;
+    margin-inline: 0;
+  }
+}
+
+.about-v2-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about-v2-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-2);
+}
+
+.about-v2-intro {
+  margin-top: var(--space-4);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.about-v2-lead {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--rule);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 42rem;
+}
+
+.about-v2-body {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 768px) {
+  .about-v2-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-10);
+    padding: var(--space-10);
+  }
+}
+
+.about-v2-body p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.9375rem;
+}
+
+.about-v2-body p:only-child {
+  grid-column: 1 / -1;
+  max-width: 42rem;
+}
+
+.about-v2-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-8);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+}
+
+.about-v2-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--rule);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.about-v2-link:hover {
+  border-color: var(--ink);
+  color: var(--accent);
+}

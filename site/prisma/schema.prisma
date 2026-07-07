@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Admin {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime  @default(now())
+  sessions     Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  adminId   String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+
+  @@index([adminId])
+  @@index([token])
+}
+
+model SiteSettings {
+  id          String   @id @default("default")
+  name        String
+  tagline     String
+  intro       String
+  bio         String
+  bioExtended String
+  nowItems    String
+  links       String
+  photo       String?
+  aboutPhoto  String?
+  photos      String?
+  sectionLabels String?
+  pageCopy      String?
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  content     String
+  date        DateTime
+  tags        String?
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  year        Int
+  description String
+  content     String
+  url         String?
+  status      String?
+  sortOrder   Int      @default(0)
+  homePin     Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ReadingItem {
+  id        String  @id @default(cuid())
+  title     String
+  author    String?
+  status    String
+  url       String?
+  note      String?
+  sortOrder Int     @default(0)
+}

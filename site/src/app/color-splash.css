@@ -1,0 +1,252 @@
+/*
+ * Site color system — Colgate maroon accents, flat surfaces (no gradients).
+ *
+ * ROLLBACK: remove the import from src/app/layout.tsx and delete this file.
+ */
+
+:root {
+  --accent: #821019;
+  --accent-soft: rgba(130, 16, 25, 0.1);
+  --surface-tint: #fffaf8;
+  --rule-accent: color-mix(in srgb, var(--accent) 22%, var(--rule));
+}
+
+body {
+  background: var(--wall);
+}
+
+.site-header {
+  border-bottom-color: var(--rule-accent);
+}
+
+.site-logo {
+  color: var(--accent);
+}
+
+.site-logo:hover {
+  color: color-mix(in srgb, var(--accent) 75%, var(--ink));
+}
+
+.site-nav-link {
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.site-nav-link:hover {
+  color: var(--accent);
+}
+
+.site-nav-link.is-active {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.site-footer {
+  border-top-color: var(--rule-accent);
+  background: var(--surface-tint);
+}
+
+.eyebrow,
+.doc-meta,
+.now-label {
+  color: var(--accent);
+}
+
+.page-heading::after {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin-top: var(--space-3);
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+.section-row {
+  border-bottom-color: var(--rule-accent);
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: var(--space-2);
+  border-radius: 9999px;
+  background: var(--accent);
+  vertical-align: middle;
+  transform: translateY(-0.12em);
+}
+
+.section-action {
+  font-weight: 500;
+}
+
+.now-panel {
+  background: var(--surface-tint);
+  border-color: var(--rule-accent);
+  border-top: 2px solid var(--accent);
+}
+
+.social-link {
+  background: var(--surface-tint);
+}
+
+.social-link:hover {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+  color: var(--accent);
+}
+
+.preview-card,
+.preview-tile,
+.project-card {
+  background: var(--surface-tint);
+}
+
+.preview-card:hover,
+.preview-tile:hover,
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--rule));
+  background: var(--surface);
+}
+
+.preview-tile:hover .preview-tile-title,
+.preview-card-title:hover,
+.project-card:hover .project-card-title {
+  color: var(--accent);
+}
+
+.site-photo-rounded,
+.site-photo-circle {
+  border-color: color-mix(in srgb, var(--accent) 26%, var(--rule));
+}
+
+.reading-group-label {
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.reading-group-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.reading-row-status {
+  color: var(--ink);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.reading-row-link:hover .reading-row-title,
+.reading-row-link:hover .reading-row-icon {
+  color: var(--accent);
+}
+
+.blog-feed-item {
+  border: 1px solid var(--rule);
+  background: var(--surface-tint);
+  border-top: 2px solid var(--accent);
+}
+
+.blog-feed-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 32%, var(--rule));
+  border-top-color: var(--accent);
+}
+
+.project-card-title {
+  transition: color 150ms ease;
+}
+
+.article-header {
+  border-bottom-color: var(--rule-accent);
+  padding-bottom: var(--space-6);
+}
+
+.article-header::before {
+  content: "";
+  display: block;
+  width: 2.75rem;
+  height: 3px;
+  margin-bottom: var(--space-4);
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.text-link {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.about-v2-hero {
+  background: var(--surface-tint);
+  border-color: var(--rule-accent);
+  border-top: 2px solid var(--accent);
+}
+
+.about-v2-eyebrow {
+  color: var(--accent);
+}
+
+.about-v2-lead {
+  border-top-color: var(--rule-accent);
+}
+
+.about-v2-body,
+.about-v2-links {
+  background: var(--surface-tint);
+  border-color: var(--rule-accent);
+}
+
+.about-v2-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.admin-button:not(.admin-button-secondary) {
+  background: var(--accent);
+  color: white;
+}
+
+.admin-button:not(.admin-button-secondary):hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ink));
+  opacity: 1;
+}
+
+.admin-button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+
+.admin-button-secondary:hover {
+  background: var(--surface);
+  border-color: color-mix(in srgb, var(--ink) 22%, var(--rule));
+  opacity: 1;
+}
+
+.admin-pin.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.admin-card {
+  background: var(--surface-tint);
+  border-color: var(--rule-accent);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
