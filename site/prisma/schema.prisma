@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model Admin {
@@ -29,20 +30,20 @@ model Session {
 }
 
 model SiteSettings {
-  id          String   @id @default("default")
-  name        String
-  tagline     String
-  intro       String
-  bio         String
-  bioExtended String
-  nowItems    String
-  links       String
-  photo       String?
-  aboutPhoto  String?
-  photos      String?
+  id            String   @id @default("default")
+  name          String
+  tagline       String
+  intro         String
+  bio           String
+  bioExtended   String
+  nowItems      String
+  links         String
+  photo         String?
+  aboutPhoto    String?
+  photos        String?
   sectionLabels String?
   pageCopy      String?
-  updatedAt   DateTime @updatedAt
+  updatedAt     DateTime @updatedAt
 }
 
 model BlogPost {
