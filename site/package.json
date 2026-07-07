@@ -9,7 +9,7 @@
     "lint": "eslint",
     "db:push": "node scripts/prepare-prisma.mjs && prisma db push",
     "db:seed": "tsx prisma/seed.ts",
-    "postinstall": "node scripts/prepare-prisma.mjs && prisma generate",
+    "postinstall": "node scripts/prepare-prisma.mjs && prisma generate"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.1.0",
