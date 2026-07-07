@@ -39,6 +39,10 @@ yarn-error.log*
 # reference assets
 .reference/
 
+# user uploads (local dev only; production uses Vercel Blob)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

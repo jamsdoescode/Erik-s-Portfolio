@@ -54,17 +54,24 @@ export function ImageUploadField({ label, value, onChange, purpose }: ImageUploa
         body: formData,
       });
 
-      const data = (await response.json()) as { url?: string; error?: string };
+      let data: { url?: string; error?: string } = {};
+      try {
+        data = (await response.json()) as { url?: string; error?: string };
+      } catch {
+        // Non-JSON error response (e.g. 500 HTML).
+      }
+
       if (!response.ok) {
-        setUploadError(data.error || "Upload failed");
+        setUploadError(data.error || response.statusText || "Upload failed");
         return false;
       }
 
       if (data.url) onChange(data.url);
       closeCropper();
       return true;
-    } catch {
-      setUploadError("Upload failed. Check your connection and try again.");
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Upload failed. Check your connection and try again.";
+      setUploadError(message);
       return false;
     } finally {
       setUploading(false);
