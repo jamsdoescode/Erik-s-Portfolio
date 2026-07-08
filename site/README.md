@@ -57,3 +57,4 @@ For production, set strong `JWT_SECRET` and `ADMIN_PASSWORD` values, then run `n
 ## Content seed
 
 Initial content is imported from `content/` into SQLite by `npm run db:seed`. After that, the admin panel is the source of truth.
+
