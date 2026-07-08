@@ -1088,6 +1088,7 @@ export type ReadingItemCreateManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * The data used to create many ReadingItems.
    */
   data: Prisma.ReadingItemCreateManyInput | Prisma.ReadingItemCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1106,6 +1107,7 @@ export type ReadingItemCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * The data used to create many ReadingItems.
    */
   data: Prisma.ReadingItemCreateManyInput | Prisma.ReadingItemCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

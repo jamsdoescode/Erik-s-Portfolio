@@ -66,5 +66,6 @@ export async function POST(request: Request) {
   revalidatePath("/");
   revalidatePath("/projects");
   revalidatePath(`/projects/${project.slug}`);
+  revalidatePath("/admin/projects");
   return NextResponse.json({ project });
 }

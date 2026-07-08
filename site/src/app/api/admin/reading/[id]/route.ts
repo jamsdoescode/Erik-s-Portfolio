@@ -40,6 +40,7 @@ export async function PUT(request: Request, { params }: RouteContext) {
 
   revalidatePath("/");
   revalidatePath("/reading");
+  revalidatePath("/admin/reading");
   return NextResponse.json({ item });
 }
 
@@ -52,5 +53,6 @@ export async function DELETE(_request: Request, { params }: RouteContext) {
 
   revalidatePath("/");
   revalidatePath("/reading");
+  revalidatePath("/admin/reading");
   return NextResponse.json({ ok: true });
 }

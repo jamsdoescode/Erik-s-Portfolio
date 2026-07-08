@@ -1132,6 +1132,7 @@ export type BlogPostCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * The data used to create many BlogPosts.
    */
   data: Prisma.BlogPostCreateManyInput | Prisma.BlogPostCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1150,6 +1151,7 @@ export type BlogPostCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many BlogPosts.
    */
   data: Prisma.BlogPostCreateManyInput | Prisma.BlogPostCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**

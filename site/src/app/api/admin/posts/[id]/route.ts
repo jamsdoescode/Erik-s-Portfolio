@@ -56,6 +56,8 @@ export async function PUT(request: Request, { params }: RouteContext) {
   revalidatePath("/");
   revalidatePath("/blog");
   revalidatePath(`/blog/${post.slug}`);
+  revalidatePath("/admin/posts");
+  revalidatePath(`/admin/posts/${id}`);
   return NextResponse.json({ post });
 }
 
@@ -69,5 +71,6 @@ export async function DELETE(_request: Request, { params }: RouteContext) {
   revalidatePath("/");
   revalidatePath("/blog");
   revalidatePath(`/blog/${post.slug}`);
+  revalidatePath("/admin/posts");
   return NextResponse.json({ ok: true });
 }

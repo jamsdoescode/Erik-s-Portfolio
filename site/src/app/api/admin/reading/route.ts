@@ -44,5 +44,6 @@ export async function POST(request: Request) {
 
   revalidatePath("/");
   revalidatePath("/reading");
+  revalidatePath("/admin/reading");
   return NextResponse.json({ item });
 }

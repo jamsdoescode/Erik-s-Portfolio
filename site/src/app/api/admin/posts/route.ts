@@ -50,5 +50,6 @@ export async function POST(request: Request) {
   revalidatePath("/");
   revalidatePath("/blog");
   revalidatePath(`/blog/${post.slug}`);
+  revalidatePath("/admin/posts");
   return NextResponse.json({ post });
 }
