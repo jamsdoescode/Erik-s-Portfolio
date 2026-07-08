@@ -117,6 +117,7 @@ export async function PUT(request: Request) {
     revalidatePath("/reading");
     revalidatePath("/projects");
     revalidatePath("/blog");
+    revalidatePath("/admin/settings");
 
     return NextResponse.json({ ok: true, settings });
   } catch (cause) {
