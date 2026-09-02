@@ -9,6 +9,7 @@ type SiteShellProps = {
   children: React.ReactNode;
   className?: string;
   narrow?: boolean;
+  hideNav?: boolean;
 };
 
 export function SiteShell({
@@ -17,11 +18,14 @@ export function SiteShell({
   children,
   className,
   narrow = false,
+  hideNav = false,
 }: SiteShellProps) {
   return (
     <div className="site-frame">
-      <SiteHeader currentPath={currentPath} nav={site.pageCopy.nav} />
-      <main className={cn("site-main", narrow && "site-main-narrow", className)}>{children}</main>
+      {!hideNav && <SiteHeader currentPath={currentPath} nav={site.pageCopy.nav} />}
+      <main className={cn("site-main", narrow && "site-main-narrow", hideNav && "site-main-company", className)}>
+        {children}
+      </main>
       <SiteFooter copyrightName={site.pageCopy.footer.copyrightName} adminLabel={site.pageCopy.footer.adminLink} />
     </div>
   );

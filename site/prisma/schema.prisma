@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
 }
 
 model Admin {
@@ -81,4 +81,19 @@ model ReadingItem {
   url       String?
   note      String?
   sortOrder Int     @default(0)
+}
+
+model CompanyPage {
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  orgName            String
+  roleTitle          String
+  heroHeadline       String
+  sections           String   @default("[]")
+  whyThisOrg         String   @default("")
+  relevantExperience String   @default("")
+  talkingPoints      String   @default("[]")
+  published          Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }

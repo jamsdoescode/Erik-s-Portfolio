@@ -389,7 +389,8 @@ export const ModelName = {
   SiteSettings: 'SiteSettings',
   BlogPost: 'BlogPost',
   Project: 'Project',
-  ReadingItem: 'ReadingItem'
+  ReadingItem: 'ReadingItem',
+  CompanyPage: 'CompanyPage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "admin" | "session" | "siteSettings" | "blogPost" | "project" | "readingItem"
+    modelProps: "admin" | "session" | "siteSettings" | "blogPost" | "project" | "readingItem" | "companyPage"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +854,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CompanyPage: {
+      payload: Prisma.$CompanyPagePayload<ExtArgs>
+      fields: Prisma.CompanyPageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CompanyPageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CompanyPageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        findFirst: {
+          args: Prisma.CompanyPageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CompanyPageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        findMany: {
+          args: Prisma.CompanyPageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>[]
+        }
+        create: {
+          args: Prisma.CompanyPageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        createMany: {
+          args: Prisma.CompanyPageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CompanyPageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>[]
+        }
+        delete: {
+          args: Prisma.CompanyPageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        update: {
+          args: Prisma.CompanyPageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        deleteMany: {
+          args: Prisma.CompanyPageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CompanyPageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CompanyPageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>[]
+        }
+        upsert: {
+          args: Prisma.CompanyPageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CompanyPagePayload>
+        }
+        aggregate: {
+          args: Prisma.CompanyPageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCompanyPage>
+        }
+        groupBy: {
+          args: Prisma.CompanyPageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompanyPageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CompanyPageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CompanyPageCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -883,9 +958,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
-  ReadUncommitted: 'ReadUncommitted',
-  ReadCommitted: 'ReadCommitted',
-  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -981,20 +1053,30 @@ export const ReadingItemScalarFieldEnum = {
 export type ReadingItemScalarFieldEnum = (typeof ReadingItemScalarFieldEnum)[keyof typeof ReadingItemScalarFieldEnum]
 
 
+export const CompanyPageScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  orgName: 'orgName',
+  roleTitle: 'roleTitle',
+  heroHeadline: 'heroHeadline',
+  sections: 'sections',
+  whyThisOrg: 'whyThisOrg',
+  relevantExperience: 'relevantExperience',
+  talkingPoints: 'talkingPoints',
+  published: 'published',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CompanyPageScalarFieldEnum = (typeof CompanyPageScalarFieldEnum)[keyof typeof CompanyPageScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-export const QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-} as const
-
-export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
 export const NullsOrder = {
@@ -1019,23 +1101,9 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
 
 
 /**
- * Reference to a field of type 'String[]'
- */
-export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
-    
-
-
-/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-/**
- * Reference to a field of type 'DateTime[]'
- */
-export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -1054,23 +1122,9 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
 
 
 /**
- * Reference to a field of type 'Int[]'
- */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-/**
- * Reference to a field of type 'Float[]'
- */
-export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -1189,6 +1243,7 @@ export type GlobalOmitConfig = {
   blogPost?: Prisma.BlogPostOmit
   project?: Prisma.ProjectOmit
   readingItem?: Prisma.ReadingItemOmit
+  companyPage?: Prisma.CompanyPageOmit
 }
 
 /* Types for Logging */

@@ -47,3 +47,8 @@ export type Project = Prisma.ProjectModel
  * 
  */
 export type ReadingItem = Prisma.ReadingItemModel
+/**
+ * Model CompanyPage
+ * 
+ */
+export type CompanyPage = Prisma.CompanyPageModel

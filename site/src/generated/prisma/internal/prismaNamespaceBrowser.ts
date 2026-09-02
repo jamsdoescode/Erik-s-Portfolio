@@ -56,7 +56,8 @@ export const ModelName = {
   SiteSettings: 'SiteSettings',
   BlogPost: 'BlogPost',
   Project: 'Project',
-  ReadingItem: 'ReadingItem'
+  ReadingItem: 'ReadingItem',
+  CompanyPage: 'CompanyPage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -66,9 +67,6 @@ export type ModelName = (typeof ModelName)[keyof typeof ModelName]
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
-  ReadUncommitted: 'ReadUncommitted',
-  ReadCommitted: 'ReadCommitted',
-  RepeatableRead: 'RepeatableRead',
   Serializable: 'Serializable'
 } as const)
 
@@ -164,20 +162,30 @@ export const ReadingItemScalarFieldEnum = {
 export type ReadingItemScalarFieldEnum = (typeof ReadingItemScalarFieldEnum)[keyof typeof ReadingItemScalarFieldEnum]
 
 
+export const CompanyPageScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  orgName: 'orgName',
+  roleTitle: 'roleTitle',
+  heroHeadline: 'heroHeadline',
+  sections: 'sections',
+  whyThisOrg: 'whyThisOrg',
+  relevantExperience: 'relevantExperience',
+  talkingPoints: 'talkingPoints',
+  published: 'published',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CompanyPageScalarFieldEnum = (typeof CompanyPageScalarFieldEnum)[keyof typeof CompanyPageScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-export const QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-} as const
-
-export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
 export const NullsOrder = {
