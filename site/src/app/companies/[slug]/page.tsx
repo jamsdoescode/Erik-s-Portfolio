@@ -5,6 +5,7 @@ import { SiteShell } from "@/components/site-shell";
 import { parseTalkingPoints, renderSectionContent, resolveCompanySections } from "@/lib/company-page";
 import { getSiteConfig } from "@/lib/content";
 import { db } from "@/lib/db";
+import "../company.css";
 
 type CompanyPageProps = {
   params: Promise<{ slug: string }>;

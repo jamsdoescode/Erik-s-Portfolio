@@ -10,11 +10,12 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const host = request.headers.get("host") ?? "";
   const subdomain = extractSubdomain(host);
+  const isAdminRoute = pathname.startsWith("/admin");
 
   if (
     subdomain &&
     !pathname.startsWith("/api") &&
-    !pathname.startsWith("/admin") &&
+    !isAdminRoute &&
     !pathname.startsWith("/companies/")
   ) {
     const url = request.nextUrl.clone();
@@ -22,11 +23,14 @@ export async function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
+  if (!isAdminRoute) {
+    return NextResponse.next();
+  }
+
   const token = request.cookies.get(COOKIE_NAME)?.value;
-  const isAdmin = pathname.startsWith("/admin");
   const isLogin = pathname === "/admin/login";
 
-  if (isAdmin && !isLogin) {
+  if (!isLogin) {
     if (!token) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }

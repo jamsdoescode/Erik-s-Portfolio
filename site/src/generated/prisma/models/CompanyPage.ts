@@ -1184,6 +1184,7 @@ export type CompanyPageCreateManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * The data used to create many CompanyPages.
    */
   data: Prisma.CompanyPageCreateManyInput | Prisma.CompanyPageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1202,6 +1203,7 @@ export type CompanyPageCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * The data used to create many CompanyPages.
    */
   data: Prisma.CompanyPageCreateManyInput | Prisma.CompanyPageCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
