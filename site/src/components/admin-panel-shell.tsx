@@ -22,6 +22,9 @@ export function AdminPanelShell({ children }: { children: React.ReactNode }) {
             <Link href="/admin/projects" className="text-muted hover:text-ink">
               Projects
             </Link>
+            <Link href="/admin/companies" className="text-muted hover:text-ink">
+              Companies
+            </Link>
           </div>
           <div className="flex items-center gap-3">
             <Link href="/" className="text-sm text-muted hover:text-ink">
